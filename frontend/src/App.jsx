@@ -3,11 +3,11 @@ import './App.css'
 import UserManagement from './components/UserManagement'
 import BugReports from './components/BugReports'
 import ResourceSearch from './components/ResourceSearch'
+import AIAssistant from './components/AIAssistant'
 
 function App() {
   const [page, setPage] = useState('dashboard')
 
-  // User Onboarding page
   if (page === 'users') {
     return (
       <div className="app">
@@ -23,7 +23,6 @@ function App() {
     )
   }
 
-  // Resource Search page
   if (page === 'search') {
     return (
       <div className="app">
@@ -39,7 +38,6 @@ function App() {
     )
   }
 
-  // Bug Reports page
   if (page === 'issues') {
     return (
       <div className="app">
@@ -55,7 +53,21 @@ function App() {
     )
   }
 
-  // Main Dashboard
+  if (page === 'assistant') {
+    return (
+      <div className="app">
+        <header>
+          <h1>PreBabies</h1>
+          <p>Production Readiness Dashboard</p>
+        </header>
+
+        <AIAssistant
+          onBack={() => setPage('dashboard')}
+        />
+      </div>
+    )
+  }
+
   return (
     <div className="app">
       <header>
@@ -69,6 +81,7 @@ function App() {
         <div className="dashboard">
           <div className="card">
             <h3>User Onboarding</h3>
+
             <p>
               Manage and review new user onboarding.
             </p>
@@ -80,6 +93,7 @@ function App() {
 
           <div className="card">
             <h3>Search & Usability</h3>
+
             <p>
               Test search and discovery experiences.
             </p>
@@ -91,12 +105,25 @@ function App() {
 
           <div className="card">
             <h3>Bug Reports</h3>
+
             <p>
               Track issues discovered during testing.
             </p>
 
             <button onClick={() => setPage('issues')}>
               View Issues
+            </button>
+          </div>
+
+          <div className="card">
+            <h3>Ask PreBabies</h3>
+
+            <p>
+              AI-assisted resource guidance powered by Gemini.
+            </p>
+
+            <button onClick={() => setPage('assistant')}>
+              Open Assistant
             </button>
           </div>
         </div>
