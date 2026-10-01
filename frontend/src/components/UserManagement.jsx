@@ -47,26 +47,37 @@ function UserManagement({ onBack }) {
     return matchesSearch && matchesStatus
   })
 
-  const addUser = (event) => {
-    event.preventDefault()
+ const addUser = (event) => {
+  event.preventDefault()
 
-    if (!name.trim() || !email.trim()) {
-      return
-    }
+  const cleanName = name.trim()
+  const cleanEmail = email.trim().toLowerCase()
 
-    const newUser = {
-      id: Date.now(),
-      name: name.trim(),
-      email: email.trim(),
-      status: 'Not Started',
-    }
-
-    setUsers([...users, newUser])
-
-    setName('')
-    setEmail('')
-    setShowForm(false)
+  if (!cleanName || !cleanEmail) {
+    return
   }
+
+  const emailExists = users.some(
+    (user) => user.email.toLowerCase() === cleanEmail
+  )
+
+  if (emailExists) {
+    alert('A user with this email already exists.')
+    return
+  }
+
+  const newUser = {
+    id: Date.now(),
+    name: cleanName,
+    email: cleanEmail,
+    status: 'Not Started',
+  }
+
+  setUsers([...users, newUser])
+  setName('')
+  setEmail('')
+  setShowForm(false)
+}
 
   return (
     <main>
