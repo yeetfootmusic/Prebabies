@@ -1,0 +1,80 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: #f5f7fa;
+  color: #1f2937;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+header {
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 24px 8%;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+header p {
+  margin: 5px 0 0;
+  color: #6b7280;
+}
+
+main {
+  padding: 50px 8%;
+}
+
+main h2 {
+  margin-bottom: 25px;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background: white;
+  padding: 28px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.card p {
+  color: #6b7280;
+  min-height: 48px;
+}
+
+button {
+  background: #111827;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #374151;
+}
+
+@media (max-width: 800px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+}
