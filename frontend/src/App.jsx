@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import './App.css'
 import UserManagement from './components/UserManagement'
+import BugReports from './components/BugReports'
 
 function App() {
   const [page, setPage] = useState('dashboard')
 
+  // User Onboarding page
   if (page === 'users') {
     return (
       <div className="app">
@@ -18,6 +20,21 @@ function App() {
     )
   }
 
+  // Bug Reports page
+  if (page === 'issues') {
+  return (
+    <div className="app">
+      <header>
+        <h1>PreBabies</h1>
+        <p>Production Readiness Dashboard</p>
+      </header>
+
+      <BugReports onBack={() => setPage('dashboard')} />
+    </div>
+  )
+}
+
+  // Main Dashboard
   return (
     <div className="app">
       <header>
@@ -32,6 +49,7 @@ function App() {
           <div className="card">
             <h3>User Onboarding</h3>
             <p>Manage and review new user onboarding.</p>
+
             <button onClick={() => setPage('users')}>
               View Users
             </button>
@@ -40,13 +58,19 @@ function App() {
           <div className="card">
             <h3>Search & Usability</h3>
             <p>Test search and discovery experiences.</p>
-            <button>Open Search</button>
+
+            <button>
+              Open Search
+            </button>
           </div>
 
           <div className="card">
             <h3>Bug Reports</h3>
             <p>Track issues discovered during testing.</p>
-            <button>View Issues</button>
+
+            <button onClick={() => setPage('issues')}>
+              View Issues
+            </button>
           </div>
         </div>
       </main>

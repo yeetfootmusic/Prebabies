@@ -176,3 +176,24 @@ button:hover {
   border-radius: 6px;
   font-size: 14px;
 }
+
+.issue-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5e7eb;
+  align-items: center;
+}
+
+.issue-heading {
+  background: #f9fafb;
+  font-weight: 600;
+}
+
+.onboarding-form select {
+  padding: 11px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+}
