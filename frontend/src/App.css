@@ -197,3 +197,52 @@ button:hover {
   font-size: 14px;
   background: white;
 }
+
+.search-controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.search-controls input,
+.search-controls select {
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.search-controls input {
+  flex: 1;
+}
+
+.result-count {
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+.resource-list {
+  display: grid;
+  gap: 16px;
+}
+
+.resource-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.resource-card h3 {
+  margin: 8px 0;
+}
+
+.resource-card p {
+  margin: 0;
+  color: #6b7280;
+}
+
+.resource-category {
+  font-size: 13px;
+  font-weight: 600;
+}

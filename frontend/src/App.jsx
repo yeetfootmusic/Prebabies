@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import UserManagement from './components/UserManagement'
 import BugReports from './components/BugReports'
+import ResourceSearch from './components/ResourceSearch'
 
 function App() {
   const [page, setPage] = useState('dashboard')
@@ -15,24 +16,44 @@ function App() {
           <p>Production Readiness Dashboard</p>
         </header>
 
-        <UserManagement onBack={() => setPage('dashboard')} />
+        <UserManagement
+          onBack={() => setPage('dashboard')}
+        />
+      </div>
+    )
+  }
+
+  // Resource Search page
+  if (page === 'search') {
+    return (
+      <div className="app">
+        <header>
+          <h1>PreBabies</h1>
+          <p>Production Readiness Dashboard</p>
+        </header>
+
+        <ResourceSearch
+          onBack={() => setPage('dashboard')}
+        />
       </div>
     )
   }
 
   // Bug Reports page
   if (page === 'issues') {
-  return (
-    <div className="app">
-      <header>
-        <h1>PreBabies</h1>
-        <p>Production Readiness Dashboard</p>
-      </header>
+    return (
+      <div className="app">
+        <header>
+          <h1>PreBabies</h1>
+          <p>Production Readiness Dashboard</p>
+        </header>
 
-      <BugReports onBack={() => setPage('dashboard')} />
-    </div>
-  )
-}
+        <BugReports
+          onBack={() => setPage('dashboard')}
+        />
+      </div>
+    )
+  }
 
   // Main Dashboard
   return (
@@ -48,7 +69,9 @@ function App() {
         <div className="dashboard">
           <div className="card">
             <h3>User Onboarding</h3>
-            <p>Manage and review new user onboarding.</p>
+            <p>
+              Manage and review new user onboarding.
+            </p>
 
             <button onClick={() => setPage('users')}>
               View Users
@@ -57,16 +80,20 @@ function App() {
 
           <div className="card">
             <h3>Search & Usability</h3>
-            <p>Test search and discovery experiences.</p>
+            <p>
+              Test search and discovery experiences.
+            </p>
 
-            <button>
+            <button onClick={() => setPage('search')}>
               Open Search
             </button>
           </div>
 
           <div className="card">
             <h3>Bug Reports</h3>
-            <p>Track issues discovered during testing.</p>
+            <p>
+              Track issues discovered during testing.
+            </p>
 
             <button onClick={() => setPage('issues')}>
               View Issues
